@@ -7,8 +7,19 @@
   "targets": {
     ".NETCoreApp,Version=v9.0": {
       "test/1.0.0": {
+        "dependencies": {
+          "JetBrains.dotMemoryUnit": "3.2.20220510"
+        },
         "runtime": {
           "test.dll": {}
+        }
+      },
+      "JetBrains.dotMemoryUnit/3.2.20220510": {
+        "runtime": {
+          "lib/netstandard2.0/dotMemory.Unit.dll": {
+            "assemblyVersion": "777.0.0.0",
+            "fileVersion": "777.0.0.0"
+          }
         }
       }
     }
@@ -18,6 +29,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "JetBrains.dotMemoryUnit/3.2.20220510": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jhzqT6zXFN0S6zxNXKmiEoNIqAEtlbsteQEhDA8TkTFfQpE/noktqU1HXfJ4P2PPczW48aFW9h69nHY8pSbnXw==",
+      "path": "jetbrains.dotmemoryunit/3.2.20220510",
+      "hashPath": "jetbrains.dotmemoryunit.3.2.20220510.nupkg.sha512"
     }
   }
 }

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SSoKS/r2vi0=",
+  "dgSpecHash": "NciH0Py5TMY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jcavaillac\\Desktop\\0810\\test\\test\\test.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Work\\0810\\test\\test\\test.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jacqu\\.nuget\\packages\\jetbrains.dotmemoryunit\\3.2.20220510\\jetbrains.dotmemoryunit.3.2.20220510.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -2,7 +2,7 @@
 
 public class GameController
 {
-    private PerformancesManager m_performancesManager = new ();
+    private readonly PerformancesManager m_performancesManager = new ();
     
     public void StartGame()
     {

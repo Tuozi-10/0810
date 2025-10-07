@@ -3,16 +3,21 @@
 // class used to check modules performances and potential unit tests
 public class PerformancesManager
 {
-    private PerfsSort m_perfSort;
+    private readonly PerformancesSort m_performanceSort;
+    private readonly PerformancesStrings m_PerformanceStrings;
 
     public PerformancesManager()
     {
         Console.WriteLine($"Constructor for PerformancesManager");
-        m_perfSort = new PerfsSort();
+        
+        m_performanceSort = new PerformancesSort();
+        m_PerformanceStrings = new PerformancesStrings();
+        
     }
     
     public void OnTest()
     {
-        m_perfSort.CheckPerfSort();
+        m_performanceSort.CheckPerfSort();
+        m_PerformanceStrings.CheckPerfStrings();
     }
 }
