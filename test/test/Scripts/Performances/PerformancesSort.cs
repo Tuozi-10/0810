@@ -7,6 +7,7 @@ public class PerformancesSort
     public void CheckPerfSort()
     {
         CheckStandardSort();
+        CheckCustomSort();
         CheckLinqSort();
     }
 
@@ -44,7 +45,21 @@ public class PerformancesSort
         sw.Start();
 
         var list = GenerateRandomList(10000);
+        int temp;
 
+        //EXEMPLE INVERSION, CA SORT PAS TOUT
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i] > list[i + 1])
+            {
+                temp = list[i + 1];
+                list[i + 1] = list[i];
+                list[i] = temp;
+            }
+        }
+        
+        
+        
         // todo sort
         
         sw.Stop();
