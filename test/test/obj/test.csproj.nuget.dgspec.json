@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work\\0810\\test\\test\\test.csproj": {}
+    "C:\\Users\\jb.delbove\\Desktop\\Algo\\0810\\test\\test\\test.csproj": {}
   },
   "projects": {
-    "C:\\Work\\0810\\test\\test\\test.csproj": {
+    "C:\\Users\\jb.delbove\\Desktop\\Algo\\0810\\test\\test\\test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work\\0810\\test\\test\\test.csproj",
+        "projectUniqueName": "C:\\Users\\jb.delbove\\Desktop\\Algo\\0810\\test\\test\\test.csproj",
         "projectName": "test",
-        "projectPath": "C:\\Work\\0810\\test\\test\\test.csproj",
-        "packagesPath": "C:\\Users\\jacqu\\.nuget\\packages\\",
-        "outputPath": "C:\\Work\\0810\\test\\test\\obj\\",
+        "projectPath": "C:\\Users\\jb.delbove\\Desktop\\Algo\\0810\\test\\test\\test.csproj",
+        "packagesPath": "C:\\Users\\jb.delbove\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jb.delbove\\Desktop\\Algo\\0810\\test\\test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jacqu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\jb.delbove\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\jacqu\\.dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\jb.delbove\\.dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
