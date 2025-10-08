@@ -9,6 +9,8 @@ public class PerformancesSort
         CheckStandardSort();
         CheckCustomSort();
         CheckLinqSort();
+        CheckCustomSort();
+        CheckCustomSort2();
     }
 
     private List<int> GenerateRandomList(int count)
@@ -33,6 +35,7 @@ public class PerformancesSort
 
         var list = GenerateRandomList(10000);
 
+        list.Sort();
         // TODO SORT
         
         sw.Stop();
@@ -45,6 +48,7 @@ public class PerformancesSort
         sw.Start();
 
         var list = GenerateRandomList(10000);
+<<<<<<< Updated upstream
         int temp;
 
         //EXEMPLE INVERSION, CA SORT PAS TOUT
@@ -60,10 +64,52 @@ public class PerformancesSort
         
         
         
+=======
+        
+        for (int i = 0; i < list.Count-1; i++)
+        {
+            int x = list[i];
+            int j = i;
+            while (j > 0 && list[j - 1] > x)
+            {
+                list[j] = list[j - 1];
+                j = j - 1;
+            }
+
+            list[j] = x;
+        }
+>>>>>>> Stashed changes
         // todo sort
         
         sw.Stop();
-        Console.WriteLine($"Sort Linq");
+        
+        Console.WriteLine("Custom sort ={0}",sw.Elapsed);
+    }
+    
+    private void CheckCustomSort2()
+    {
+        var sw = new Stopwatch();
+        sw.Start();
+
+        var list = GenerateRandomList(10000);
+        var array = list.ToArray();
+        for (int i = 0; i < array.Length-1; i++)
+        {
+            int x = array[i];
+            int j = i;
+            while (j > 0 && array[j - 1] > x)
+            {
+                array[j] = array[j - 1];
+                j = j - 1;
+            }
+
+            array[j] = x;
+        }
+        // todo sort
+        
+        sw.Stop();
+        
+        Console.WriteLine("Custom sort with array ={0}",sw.Elapsed);
     }
     
     private void CheckLinqSort()
@@ -74,11 +120,10 @@ public class PerformancesSort
         var list = GenerateRandomList(10000);
 
         //  list.OrderBy()
-        
         // todo sort
-        
+        var sortedList = list.OrderBy(n => n);
         sw.Stop();
-        Console.WriteLine($"Sort Linq");
+        Console.WriteLine("Sort Linq={0}",sw.Elapsed);
     }
     
     // TODO CHECK WITH ARRAYS ALL THE SAME METHODS 
