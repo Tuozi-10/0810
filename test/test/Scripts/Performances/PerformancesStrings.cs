@@ -1,5 +1,7 @@
 ﻿using System.Text;
 
+using System.Diagnostics;
+
 namespace test.Scripts;
 
 // TODO ADD WATCH
@@ -14,24 +16,38 @@ public class PerformancesStrings
 
     private void CheckPerfsLotOfStrings()
     {
+        var sw = new Stopwatch();
+        sw.Start();
+        
         string myString = "";
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 100000; i++)
         {
             myString += i.ToString();
         }
+        
+        sw.Stop();
+        Console.WriteLine("Sort Standard Elapsed={0}", sw.Elapsed);
+        
     }
     
     private void CheckPerfsStringBuilder()
     {
+        var sw = new Stopwatch();
+        sw.Start();
+        
+        
         StringBuilder stringBuilder = new StringBuilder();
         
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 100000; i++)
         {
             stringBuilder.Append(i);
         }
 
         string myString = stringBuilder.ToString();
+        
+        sw.Stop();
+        Console.WriteLine("Sort Standard Elapsed={0}", sw.Elapsed);
     }
 
     private void CheckPerfsPrimeNumbersList()
