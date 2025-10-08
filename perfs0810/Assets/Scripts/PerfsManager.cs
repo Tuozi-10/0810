@@ -1,9 +1,22 @@
-﻿namespace test.Scripts;
-
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+using UnityEngine.Profiling;
+using Random = UnityEngine.Random;
 
-public class PerformancesSort
+
+public class PerfsManager : MonoBehaviour
 {
+
+    void Start()
+    {
+        StartCoroutine(DoChecks());
+        CheckPerfSort();
+    }
     public void CheckPerfSort()
     {
         CheckStandardSort();
@@ -12,7 +25,66 @@ public class PerformancesSort
         CheckCustomSort();
         CheckCustomSort2();
     }
+    private IEnumerator DoChecks()
+    {
+        yield return new WaitForSeconds(2f);
+        CheckTrue();
+        CheckTrue2();
+        CheckTrue3();
+        CheckTrue4();
+    }
 
+    private void CheckTrue()
+    {
+        Profiler.BeginSample("test 1");
+        string t = "";
+        for (int i = 0; i < 50000; i++)
+        {
+            t += i.ToString();
+        }
+
+        Profiler.EndSample();
+    }
+
+    private void CheckTrue2()
+    {
+        Profiler.BeginSample("test 2");
+        StringBuilder stringBuilder = new StringBuilder();
+        
+        for (int i = 0; i < 50000; i++)
+        {
+            stringBuilder.Append(i);
+        }
+
+        string myString = stringBuilder.ToString();
+        Profiler.EndSample();
+    }
+    
+    private void CheckTrue3()
+    {
+        Profiler.BeginSample("test 3");
+        string t = "";
+        for (int i = 0; i < 1; i++)
+        {
+            t += i.ToString();
+        }
+
+        Profiler.EndSample();
+    }
+
+    private void CheckTrue4()
+    {
+        Profiler.BeginSample("test 4");
+        StringBuilder stringBuilder = new StringBuilder();
+        
+        for (int i = 0; i < 1; i++)
+        {
+            stringBuilder.Append(i);
+        }
+
+        string myString = stringBuilder.ToString();
+        Profiler.EndSample();
+    }
     private List<int> GenerateRandomList(int count)
     {       
         var random = new Random();
@@ -21,7 +93,7 @@ public class PerformancesSort
         
         for (int i = 0; i < count; i++)
         {
-            int value = random.Next();
+            int value = UnityEngine.Random.Range(0,int.MaxValue);
             randomList.Add(value);
         }
 
@@ -119,7 +191,4 @@ public class PerformancesSort
         sw.Stop();
         Console.WriteLine("Sort Linq={0}",sw.Elapsed);
     }
-    
-    // TODO CHECK WITH ARRAYS ALL THE SAME METHODS 
-    
 }
