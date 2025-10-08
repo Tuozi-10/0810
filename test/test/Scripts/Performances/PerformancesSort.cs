@@ -1,4 +1,4 @@
-﻿namespace test.Scripts;
+namespace test.Scripts;
 
 using System.Diagnostics;
 
@@ -8,6 +8,7 @@ public class PerformancesSort
     {
         CheckStandardSort();
         CheckCustomSort();
+        CheckCustomArraySort();
         CheckLinqSort();
     }
 
@@ -26,19 +27,23 @@ public class PerformancesSort
         return randomList;
     }
     
+    
     private void CheckStandardSort()
     {
         var sw = new Stopwatch();
         sw.Start();
 
         var list = GenerateRandomList(10000);
+        list.Sort();
 
+        
         // TODO SORT
         
         sw.Stop();
         Console.WriteLine("Sort Standard Elapsed={0}",sw.Elapsed);
     }
 
+    
     private void CheckCustomSort()
     {
         var sw = new Stopwatch();
@@ -47,24 +52,47 @@ public class PerformancesSort
         var list = GenerateRandomList(10000);
         int temp;
 
-        //EXEMPLE INVERSION, CA SORT PAS TOUT
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < list.Count - 1; i++)
         {
             if (list[i] > list[i + 1])
             {
-                temp = list[i + 1];
-                list[i + 1] = list[i];
-                list[i] = temp;
+                (list[i], list[i + 1]) = (list[i + 1], list[i]);
+                i--;
             }
         }
+
+
         
-        
+
         
         // todo sort
         
         sw.Stop();
-        Console.WriteLine($"Sort Linq");
+        Console.WriteLine("Sort custom Elapsed={0}",sw.Elapsed);
     }
+
+    private void CheckCustomArraySort()
+    {
+        var sw = new Stopwatch();
+        sw.Start();
+        
+        var list = GenerateRandomList(10000);
+        var array = list.ToArray();
+
+        for (int i = 0; i < array.Length-1; i++)
+        {
+            if (array[i] > array[i + 1])
+            {
+                (array[i], array[i + 1]) = (array[i + 1], array[i]);
+                i--;
+            }
+        }
+        
+        sw.Stop();
+        Console.WriteLine("Sort custom array Elapsed={0}",sw.Elapsed);
+        
+    }
+    
     
     private void CheckLinqSort()
     {
@@ -73,12 +101,12 @@ public class PerformancesSort
 
         var list = GenerateRandomList(10000);
 
-        //  list.OrderBy()
+        var sortedList = list.OrderBy(i => i);
         
         // todo sort
         
         sw.Stop();
-        Console.WriteLine($"Sort Linq");
+        Console.WriteLine("Sort Linq Elapsed={0}",sw.Elapsed);
     }
     
     // TODO CHECK WITH ARRAYS ALL THE SAME METHODS 
